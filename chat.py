@@ -25,8 +25,8 @@ def main():
 
         rlist, wlist, elist = select.select([sys.stdin], [], [], 0.1)
         if rlist:
-            recipient = sys.stdin.readline()
-            msg = input("Message:")
+            recipient = sys.stdin.readline().rstrip()
+            msg = input("Message:").rstrip()
             print("\x1b[31;m[%s] %s\x1b[0m" % (recipient, msg))
 
             recipient_service = nw0.discover("zerochat_" + recipient)
